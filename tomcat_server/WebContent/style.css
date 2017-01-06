@@ -1,0 +1,17 @@
+@CHARSET "EUC-KR";
+table {
+    background-color: #f6f6f6;
+    border-collapse: collapse;
+    border-color: navy;
+    border-style: dashed
+}
+
+.loginPage {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+    width: 200px;
+    height: 30px;
+}

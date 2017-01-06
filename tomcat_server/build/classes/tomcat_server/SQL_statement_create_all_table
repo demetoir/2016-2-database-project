@@ -1,0 +1,119 @@
+create table userTable(
+	user_ID varchar(50),
+	password varchar(50),
+	name varchar(50),
+	user_type varchar(50),
+	phone_number varchar(50),
+	email_address varchar(100),
+	address varchar(300),
+	primary key(user_ID)
+);
+
+create table crew(
+	crew_ID varchar(50),
+	user_ID varchar(50),
+	space_cargo_ship_id varchar(50),
+	position varchar(50),
+	role varchar(50),
+	primary key(crew_ID),
+	foreign key(user_ID) references userTable
+	on delete cascade
+)
+;
+
+
+create table planet(
+	planet_ID varchar(50),
+	planet_name varchar(50),
+	cordinate_X numeric(10,5),
+	cordinate_Y numeric(10,5),
+	cordinate_Z numeric(10,5),
+	planet_type varchar(50),
+	distance numeric(10,5),
+	population numeric(10),
+	할인및할증률 numeric(10,3),
+	primary key(planet_ID)
+)
+;
+
+create table cargo_owner(
+	cargo_owner_ID varchar(50),
+	user_ID varchar(50),
+	planet_id varchar(50),
+	company_name varchar(50),
+	grade varchar(50),
+	credit numeric(22,5),
+	primary key(cargo_owner_ID),
+	foreign key(user_ID) references userTable
+	on delete cascade,
+	foreign key(planet_id) references planet
+	on delete set null
+)
+;
+
+create table cargo_ship(
+	cargo_ship_id varchar(50),
+	cargo_ship_name varchar(50),
+	cargo_ship_grade varchar(20),
+	capacity numeric(10,2),
+	velocity numeric(10,2),
+	max_flight_distance numeric(10,2),
+	cargo_ship_state varchar(50),
+	cargo_ship_destination varchar(50),
+	cost numeric(10,2),
+	primary key (cargo_ship_id),
+	foreign key(cargo_ship_destination) references planet
+	on delete set null
+)
+;
+
+create table cargo(
+	cargo_id varchar(50),
+	cargo_owner_ID varchar(50),
+	weight numeric(10,2),
+	destination varchar(50),
+	cargo_ship_id varchar(50),
+	cargo_state varchar(50),
+	primary key(cargo_id),
+	foreign key(destination) references planet
+	on delete set null,
+	foreign key(cargo_owner_ID) references cargo_owner
+	on delete set null,
+	foreign key(cargo_ship_id) references cargo_ship
+	on delete set null
+)
+;
+
+create table necessary_item(
+	cargo_ship_id varchar(50),
+	item_name varchar(50),
+	item_max_amount numeric(10,2),
+	item_current_amount numeric(10,2),
+	primary key(cargo_ship_id, item_name),
+	foreign key(cargo_ship_id) references cargo_ship
+	on delete cascade
+)
+;	
+
+
+create table delivery_log(
+	log_id varchar(50),
+	owner_id varchar(50),
+	cargo_ship_id varchar(50),
+	weight numeric(10,2),
+	totalcost numeric(22,5),
+	primary key(log_id)
+)
+;
+
+
+create table shipped_cargo(
+	cargo_ship_id varchar(50),
+	cargo_id varchar(50),
+	weight numeric(10,2),
+	primary key(cargo_ship_id, cargo_id)
+)
+;
+
+
+	

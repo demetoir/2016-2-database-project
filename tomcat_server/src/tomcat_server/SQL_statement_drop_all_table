@@ -1,0 +1,16 @@
+drop table delivery_log
+;
+drop table necessary_item
+;
+drop table cargo
+;
+drop table cargo_ship
+;
+drop table cargo_owner
+;
+drop table planet
+;
+drop table crew
+;
+drop table userTable
+;

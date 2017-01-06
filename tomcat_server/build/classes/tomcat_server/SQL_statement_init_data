@@ -1,0 +1,39 @@
+insert into userTable values('root', 'root', 'root', '중앙관리자', null, null, null)	
+;	
+insert into userTable values('crew', 'crew', 'crew', '선원', null, null, null)
+;
+insert into userTable values('cargo', 'cargo', 'cargo', '화주', null, null, null)
+;
+insert into userTable values('000001', 'i like light saver', '루크 스카이워커', '화주', null, null, null)
+;
+insert into userTable values('000002', 'my love chubaka', '한 솔로', '화주', null, null, null)
+;
+insert into userTable values('000003', 'unlimited power', '펠퍼틴', '중앙관리자', null, null, null)
+;
+insert into userTable values('000004', 'i am your father', '다스 베이더', '선원', null, null, null)
+;
+insert into crew values('000004','000004', '000' , 'Supreme Commander', 'killing jedia')
+;
+insert into crew values('crew','crew', null , null,  null)
+;
+insert into planet values('666', 'death star' , 0,1,2, 'planet destroyer', 0, 123455, 4321.0)
+;
+insert into planet values('555', 'tatuin' , 0,1,2, 'desert planet', 0, 123455, 4321.0)
+;
+insert into cargo_owner values('000001','000001', '555', 'rebellion', 'bronze' , 0)
+;
+insert into cargo_owner values('000002','000002', null, 'rebellion', 'ilver', 10000)
+;
+insert into cargo_owner values('cargo','cargo', null, 'rebellion', 'ilver', 10000)
+;
+insert into cargo_ship values('123', 'TIE fighter', 'advenced x1', 1000, 100, 10000, 'good', null, 321)
+;
+insert into cargo values('555', '000002', 1000, '666', null , '출발전')
+;
+insert into necessary_item values('123', 'dark side of force', 100, 100)
+;
+
+
+
+
+
